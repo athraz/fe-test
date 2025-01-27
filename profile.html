@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script>
+        if (localStorage.getItem("loggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+    <script src="assets/js/db.js" defer></script>
+    <script src="assets/js/crud.js" defer></script>
+    <script src="assets/js/auth.js" defer></script>
+    <script src="assets/js/navbar.js" defer></script>
+    <script src="assets/js/profile.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-500 text-white px-4 py-2 flex justify-between items-center shadow-md">
+        <h1 class="text-lg font-bold">Welcome to the Profile Page</h1>
+        <div class="relative group">
+            <div class="flex items-center gap-2 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rounded-full w-10 h-10 border-2 border-white"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" class="bg-gray-300" />
+                    <circle cx="12" cy="9" r="4" class="bg-gray-500" />
+                    <path d="M5 18c0-3 4-4 7-4s7 1 7 4" />
+                </svg>
+                <span id="navbarUsername" class="font-semibold"></span>
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+            <div
+                class="absolute right-0 mt-2 w-48 bg-white text-black rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+                <button id="logoutButton" class="w-full text-left px-4 py-2 hover:bg-gray-100">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile -->
+    <div class="container mx-auto mt-8">
+        <div class="bg-white shadow-md rounded p-6">
+            <h2 class="text-xl font-bold mb-4">Profile Information</h2>
+
+            <div class="flex justify-center mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rounded-full w-32 h-32 border-2 border-white"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" class="bg-gray-300" />
+                    <circle cx="12" cy="9" r="4" class="bg-gray-500" />
+                    <path d="M5 18c0-3 4-4 7-4s7 1 7 4" />
+                </svg>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label for="name" class="block text-sm font-semibold text-gray-700">Name</label>
+                    <input type="text" id="name" class="w-full p-2 border border-gray-300 rounded mt-1"
+                        placeholder="Enter your name">
+                </div>
+
+                <div>
+                    <label for="username" class="block text-sm font-semibold text-gray-700">Username</label>
+                    <input type="text" id="username" class="w-full p-2 border border-gray-300 rounded mt-1" disabled>
+                </div>
+
+                <div class="flex justify-between mt-4">
+                    <button id="backButton" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700">
+                        Back
+                    </button>
+                    <button id="saveButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
