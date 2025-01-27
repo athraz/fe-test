@@ -16,15 +16,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (updatedName && updatedName !== "") {
                 const updatedData = {
+                    name: updatedName,
+                    username: document.getElementById("username").value,
+                    password: loggedInUser.password
+                };
+
+                updateUser(loggedInUser.id, updatedData);
+
+                const user = {
                     id: loggedInUser.id,
                     name: updatedName,
                     username: document.getElementById("username").value,
                     password: loggedInUser.password
                 };
 
-                updateUser(updatedData);
-
-                localStorage.setItem("loggedInUser", JSON.stringify(updatedData))
+                localStorage.setItem("loggedInUser", JSON.stringify(user))
 
                 window.location.href = "index.html";
             } else {
